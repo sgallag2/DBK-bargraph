@@ -1,0 +1,42 @@
+form{
+  margin-top:2%;
+}
+
+#twoButtons{
+  text-align: center;
+}
+
+
+
+.canvas text {
+  fill: white;
+  font: 14px sans-serif;
+  text-anchor: end;
+}
+
+.tick {
+  stroke-dasharray: 1, 2;
+        }
+
+.tick text {fill:black!important}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+        
+.axis text {
+  font-family: 'Arial';
+  font-size: 17px;
+  fill: black;
+}
+
+.canvas .title {
+  font: 25px sans-serif;
+  fill: black;
+}
+
+.bar:hover {
+  fill: turquoise;
+}

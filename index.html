@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+        <title>Graphics Generator</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/CSS-1.css">
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+
+<div>
+        
+    <form>
+            <label>Enter data values in this box, seperated by commas:</label>
+            <textarea id="textarea1" rows="4" cols="50"></textarea>
+    </form>
+
+    <form>
+            <label>Enter corresponding descriptions of each data point, seperated by commas:</label>
+            <textarea id="textarea2" rows="4" cols="50"></textarea>
+    </form>
+    
+        <form><input type="text" id="titleInput" size="50" placeholder="Graph headline"/></form>
+        <form><input type="text" id="xInput" size="50" placeholder="X-axis label"/></form>
+        <form><input type="text" id="yInput" size= "50" placeholder="Y-axis label"/></form>
+        <form><input type="text" id="high" size="50" placeholder="Highest value in data set"/></form>
+
+<form id="twoButtons">
+        <input type="button" id="goButton" value="Generate graph"/>
+        <input type="button" id="resetButton" value=" Reset "/>
+</form>
+        
+        <p>Your graph will appear below:</p>  
+        <svg class="canvas"></svg>
+</div>           
+
+    <script type="text/javascript">
+    
+    var highestNumber;
+    var numbersArray;
+    var labelsArray;
+    var titleVariable;
+    var xLabelVariable;
+    var yLabelVariable;
+    
+    $(document).ready(function() {
+        $('#goButton').click(function() {
+            var newNumbersString = $("#textarea1").val();
+            var numbersArray = newNumbersString.split(",");
+            
+            var newLabelsString = $("#textarea2").val();
+            var labelsArray = newLabelsString.split(",");
+            
+            var titleVariable = $("#titleInput").val();
+            var xLabelVariable = $("#xInput").val();
+            var yLabelVariable = $("#yInput").val();
+            var highestNumber = $("#high").val();
+            var data = numbersArray;
+var width = 600,
+    barHeight = (400/data.length);
+var margin = {top: 50, right: 30, bottom: 40, left: 60};
+var x = d3.scale.linear()
+    .domain([0, highestNumber])
+    .range([0, 600]);
+var axis = d3.svg.axis()
+.ticks(5)
+.scale(x);
+var color = d3.scale.linear()
+.domain([0,60])
+.range(["#E51937"])
+var canvas = d3.select(".canvas")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", (barHeight * data.length+150) + margin.top + margin.bottom)
+        .style("border", "1px solid black")
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+;
+var bar = canvas.selectAll("g")
+    .data(data)
+  .enter().append("g")
+ .attr("fill", "#E51937")
+    .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+bar.append("rect")
+    .attr("width", x)
+    .attr("height", barHeight - 1)
+    .attr("fill", function(d) {return color(d)});
+bar.append("text")
+    .attr("x", function(d) { return x(d) - 5; })
+    .attr("y", barHeight / 2)
+    .attr("dy", ".35em")
+    .text(function(d) { return d; });
+// chart title
+canvas.append("text")
+  .text(titleVariable)
+  .attr("x", width / 2)
+  .attr("y", -10)
+  .attr("class","title");
+//x-axis
+canvas.append("g")
+.attr("class", "axis")
+.attr("transform", "translate(0, 400)")
+.call(axis)
+.append("text")
+.attr("x", width / 2)
+.attr("y", margin.bottom+15)
+.text(xLabelVariable);
+// y axis and label
+canvas.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "rotate(-90)")
+    .append("text")
+    .attr("x", -150)
+    .attr("y", -margin.bottom)
+    .text(yLabelVariable);
+ 
+var line = canvas.append("line")
+.attr("x1", 0)
+.attr("y1", 478)
+.attr("x2",600)
+.attr("y2",478)
+.attr("stroke", "black")
+.attr("stroke-width", 1); 
+ 
+var logo = canvas.append("svg:image")
+   .attr('x',0)
+   .attr('y',482)
+   .attr('width', 80)
+   .attr('height', 80)
+   .attr("xlink:href","https://googledrive.com/host/0B8YsgIv2mNlHQ1JKeTNNM2lYS2M/");
+            
+            
+        });
+        
+        $('#resetButton').click(function() {
+        $("textarea").val('');
+        });
+    
+                
+});
+    </script>
+
+</body>
+</html>
