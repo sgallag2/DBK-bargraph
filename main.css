@@ -1,12 +1,8 @@
 @font-face {
-	font-family: 'QuioscoFour-Bold';
-	src: url('fonts/QuioscoFour-Bold.oft'); 
-	src: 
-		local('QuioscoFour-Bold'),
-		local('Quiosco Four Bold'),
-		url('fonts/QuioscoFour-Bold.otf') 
-		format('opentype');
+    font-family: "Solano";
+    src: url("fonts/SolanoGothicMVB-Bd.otf");
 }
+
 
 form{
   margin-top:2%;
@@ -20,7 +16,7 @@ form{
 
 .canvas text {
   fill: white;
-  font: 14px sans-serif;
+  font: 14px 'Solano', sans-serif;
   text-anchor: end;
 }
 
@@ -37,13 +33,13 @@ form{
 }
         
 .axis text {
-  font-family: 'Arial';
+  font-family: 'Solano';
   font-size: 17px;
   fill: black;
 }
 
 .canvas .title {
-  font: 25px 'QuioscoFour-Bold', serif;
+  font: 25px 'Solano', serif;
   fill: black;
 }
 
