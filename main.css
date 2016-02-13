@@ -1,3 +1,13 @@
+@font-face {
+	font-family: 'QuioscoFour-Bold';
+	src: url('fonts/QuioscoFour-Bold.oft'); 
+	src: 
+		local('QuioscoFour-Bold'),
+		local('Quiosco Four Bold'),
+		url('fonts/QuioscoFour-Bold.otf') 
+		format('opentype');
+}
+
 form{
   margin-top:2%;
 }
@@ -33,7 +43,7 @@ form{
 }
 
 .canvas .title {
-  font: 25px sans-serif;
+  font: 25px 'QuioscoFour-Bold', sans-serif;
   fill: black;
 }
 
