@@ -9,7 +9,7 @@ form{
 
 
 .canvas text {
-  fill: white;
+  fill: black;
   font: 14px sans-serif;
   text-anchor: end;
 }
