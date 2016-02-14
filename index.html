@@ -63,7 +63,7 @@
             var data = numbersArray;
 var width = 600,
     barHeight = (400/data.length);
-var margin = {top: 50, right: 30, bottom: 40, left: 60};
+var margin = {top: 100, right: 30, bottom: 40, left: 60};
 var x = d3.scale.linear()
     .domain([0, maxNumber])
     .range([0, 600]);
@@ -98,7 +98,7 @@ bar.append("text")
 canvas.append("text")
   .text(titleVariable)
   .attr("x", width / 2)
-  .attr("y", -10)
+  .attr("y", -30)
   .attr("class","title");
 //x-axis
 canvas.append("g")

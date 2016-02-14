@@ -1,6 +1,11 @@
 @font-face {
     font-family: "Solano";
-    src: url("fonts/SolanoGothicMVB-Bd.otf");
+    src: url("fonts/SolanoGothicMVB-Md.otf");
+}
+
+@font-face{
+  font-family: "SolanoBoldCap";
+  src: url("fonts/SolanoGothicMVB-SbCap.otf");
 }
 
 
@@ -12,11 +17,9 @@ form{
   text-align: center;
 }
 
-
-
 .canvas text {
   fill: white;
-  font: 14px 'Solano', sans-serif;
+  font: 42px 'Solano', sans-serif;
   text-anchor: end;
 }
 
@@ -24,7 +27,9 @@ form{
   stroke-dasharray: 1, 2;
         }
 
-.tick text {fill:black!important}
+.tick text {
+  fill:black!important;
+}
 
 .axis path, .axis line {
   fill: none;
@@ -34,12 +39,13 @@ form{
         
 .axis text {
   font-family: 'Solano';
-  font-size: 17px;
+  font-size: 22px;
   fill: black;
 }
 
 .canvas .title {
-  font: 25px 'Solano', serif;
+  font-family:"SolanoBoldCap", serif;
+  font-size: 62px;
   fill: black;
 }
 
