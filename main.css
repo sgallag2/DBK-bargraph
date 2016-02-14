@@ -8,6 +8,11 @@
   src: url("fonts/SolanoGothicMVB-SbCap.otf");
 }
 
+@font-face{
+  font-family: "SolanoLight";
+  src: url("fonts/SolanoGothicMVB-Lt.otf")
+}
+
 
 form{
   margin-top:2%;
@@ -46,6 +51,12 @@ form{
 .canvas .title {
   font-family:"SolanoBoldCap", serif;
   font-size: 62px;
+  fill: black;
+}
+
+.canvas .credit {
+  font-family:"SolanoLight", serif;
+  font-size: 22px;
   fill: black;
 }
 
