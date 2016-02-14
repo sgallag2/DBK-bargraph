@@ -52,8 +52,8 @@
             var newNumbersString = $("#textarea1").val();
             var numbersArray = newNumbersString.split(",");
             
-            var max = 2;
-            alert(max);
+            var max = Math.max(...numbersArray);
+            alert(var max);
             
             var newLabelsString = $("#textarea2").val();
             var labelsArray = newLabelsString.split(",");
