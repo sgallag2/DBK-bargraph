@@ -27,7 +27,7 @@
         <form><input type="text" id="titleInput" size="50" placeholder="Graph headline"/></form>
         <form><input type="text" id="xInput" size="50" placeholder="X-axis label"/></form>
         <form><input type="text" id="yInput" size= "50" placeholder="Y-axis label"/></form>
-        <form><input type="text" id="high" size="50" placeholder="Highest value in data set"/></form>
+
 
 <form id="twoButtons">
         <input type="button" id="goButton" value="Generate graph"/>
@@ -40,7 +40,7 @@
 
     <script type="text/javascript">
     
-    var highestNumber;
+    var maxNumber;
     var numbersArray;
     var labelsArray;
     var titleVariable;
@@ -52,22 +52,20 @@
             var newNumbersString = $("#textarea1").val();
             var numbersArray = newNumbersString.split(",");
             
-            var max = Math.max(var numbersArray);
-            alert(var max);
-            
+            var maxNumber = Math.max.apply(Math,numbersArray);
+      
             var newLabelsString = $("#textarea2").val();
             var labelsArray = newLabelsString.split(",");
             
             var titleVariable = $("#titleInput").val();
             var xLabelVariable = $("#xInput").val();
             var yLabelVariable = $("#yInput").val();
-            var highestNumber = $("#high").val();
             var data = numbersArray;
 var width = 600,
     barHeight = (400/data.length);
 var margin = {top: 50, right: 30, bottom: 40, left: 60};
 var x = d3.scale.linear()
-    .domain([0, highestNumber])
+    .domain([0, maxNumber])
     .range([0, 600]);
 var axis = d3.svg.axis()
 .ticks(5)
