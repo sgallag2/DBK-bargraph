@@ -16,7 +16,7 @@
         
     <form>
             <label>Enter data values in this box, seperated by commas:</label>
-            <textarea id="textarea1" rows="4" cols="50"></textarea>
+            <textarea id="textarea1" rows="1" cols="50"></textarea>
     </form>
 
     <form>
@@ -27,7 +27,7 @@
         <form><input type="text" id="titleInput" size="50" placeholder="Graph headline"/></form>
         <form><input type="text" id="xInput" size="50" placeholder="X-axis label"/></form>
         <form><input type="text" id="yInput" size= "50" placeholder="Y-axis label"/></form>
-        
+        <form><input type="text" id="high" size="50" placeholder="Highest value in data set"/></form>
 
 <form id="twoButtons">
         <input type="button" id="goButton" value="Generate graph"/>
@@ -40,7 +40,7 @@
 
     <script type="text/javascript">
     
-   
+    var highestNumber;
     var numbersArray;
     var labelsArray;
     var titleVariable;
@@ -51,8 +51,6 @@
         $('#goButton').click(function() {
             var newNumbersString = $("#textarea1").val();
             var numbersArray = newNumbersString.split(",");
-            
-            var max = Math.max(numberArray);
             
             var newLabelsString = $("#textarea2").val();
             var labelsArray = newLabelsString.split(",");
@@ -66,7 +64,7 @@ var width = 600,
     barHeight = (400/data.length);
 var margin = {top: 50, right: 30, bottom: 40, left: 60};
 var x = d3.scale.linear()
-    .domain([0, max])
+    .domain([0, highestNumber])
     .range([0, 600]);
 var axis = d3.svg.axis()
 .ticks(5)
@@ -142,7 +140,7 @@ var logo = canvas.append("svg:image")
         });
     
                 
-})
+});
     </script>
 
 </body>
