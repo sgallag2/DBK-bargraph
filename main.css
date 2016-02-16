@@ -13,6 +13,10 @@
   src: url("fonts/SolanoGothicMVB-Lt.otf")
 }
 
+@font-face{
+  font-family:"Futura";
+  src: url("fonts/FuturaLT-Bold.ttf")
+}
 
 form{
   margin-top:2%;
@@ -51,6 +55,12 @@ form{
 .canvas .title {
   font-family:"SolanoBoldCap", serif;
   font-size: 62px;
+  fill: black;
+}
+
+.canvas .design {
+  font-family:"Futura", serif;
+  font-size: 48px;
   fill: black;
 }
 

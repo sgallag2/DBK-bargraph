@@ -27,6 +27,7 @@
         <form><input type="text" id="titleInput" size="50" placeholder="Graph headline"/></form>
         <form><input type="text" id="xInput" size="50" placeholder="X-axis label"/></form>
         <form><input type="text" id="yInput" size= "50" placeholder="Y-axis label"/></form>
+        <form><input type="text" id="credit" size= "50" placeholder="Designer's name"/></form>
 
 
 <form id="twoButtons">
@@ -34,7 +35,8 @@
         <input type="button" id="resetButton" value=" Reset "/>
 </form>
         
-        <p>Your graph will appear below:</p>  
+        <p>Your graph will appear below:</p>
+        <p id="demo"></p>
         <svg class="canvas"></svg>
 </div>           
 
@@ -46,6 +48,7 @@
     var titleVariable;
     var xLabelVariable;
     var yLabelVariable;
+    var creditLine;
     
     $(document).ready(function() {
         $('#goButton').click(function() {
@@ -60,7 +63,16 @@
             var titleVariable = $("#titleInput").val();
             var xLabelVariable = $("#xInput").val();
             var yLabelVariable = $("#yInput").val();
+            var creditLine = $("#credit").val();
             var data = numbersArray;
+            
+var obj = {};
+for (var i = 0; i < numbersArray; i++) {
+   obj[numbersArray[i]] = labelsArray[i];
+}
+var newJSON = JSON.stringify(obj);
+        
+            
 var width = 600,
     barHeight = (400/data.length);
 var margin = {top: 100, right: 30, bottom: 40, left: 60};
@@ -138,19 +150,20 @@ var logo = canvas.append("svg:image")
 
 canvas.append("text")
   .text("DESIGN")
-  .attr("x", 225)
+  .attr("x", 272)
   .attr("y", 542)
-  .attr("class","title");
+  .attr("class","design");
   
   canvas.append("text")
-  .text("Graphic by Shannon Gallagher/The Diamondback")
-  .attr("x", 625)
-  .attr("y", 542)
+  .text("Graphic by " + creditLine + "/The Diamondback")
+  .attr("x", 610)
+  .attr("y", 532)
   .attr("class","credit");
         });
         
         $('#resetButton').click(function() {
         $("textarea").val('');
+        $("input").val('');
         });
     
                 
