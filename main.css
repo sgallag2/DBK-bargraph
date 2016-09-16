@@ -26,7 +26,7 @@ form{
   text-align: center;
 }
 
-.canvas text {
+.svg text{
   fill: white;
   font: 42px 'Solano', sans-serif;
   text-anchor: end;
@@ -52,24 +52,20 @@ form{
   fill: black;
 }
 
-.canvas .title {
+.svg .title {
   font-family:"SolanoBoldCap", serif;
   font-size: 62px;
   fill: black;
 }
 
-.canvas .design {
+.svg .design {
   font-family:"Futura", serif;
   font-size: 48px;
   fill: black;
 }
 
-.canvas .credit {
+.svg .credit {
   font-family:"SolanoLight", serif;
   font-size: 22px;
   fill: black;
-}
-
-.bar:hover {
-  fill: turquoise;
 }
