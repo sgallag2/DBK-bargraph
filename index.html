@@ -115,15 +115,13 @@ form{
         <p>Finally, click here to download your image:</p>
         <button id="save">Save as Image</button>
         
-        <p>SVG dataurl:</p>
-	<div id="svgdataurl"></div>
+        <!-- <p>SVG dataurl:</p>
+	<div id="svgdataurl"></div>  -->
         
         <!-- SVG converted to PNG dataurl via HTML5 CANVAS: 
 	<div id="pngdataurl"></div>-->
 
 	<canvas width="900" height="900" style="display:none"></canvas>
-
-
 </div>           
 
 <script type="text/javascript">
@@ -136,7 +134,6 @@ form{
     var yLabelVariable;
     var creditLine;
     
-computedToInline($('#svg').get(0), true);
 
 
     $(document).ready(function() {
