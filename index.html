@@ -95,12 +95,12 @@ form{
 
     <form>
             <label>Data point labels:</label>
-            <textarea id="textarea2" rows="1" cols="50" placeholder="Person, Dog, Spider"></textarea>
+            <textarea id="textarea2" rows="1" cols="50" placeholder="Human, Dog, Spider"></textarea>
     </form>
     
         <form><label>Graph title:</label> <input type="text" id="titleInput" size="50" placeholder="max ~35 characters" /></form>
         <form><label>X-axis label:</label> <input type="text" id="xInput" size="50" placeholder="Number of Legs"/></form>
-        <form><label>Y-axis label:</label> <input type="text" id="yInput" size= "50" placeholder="Animal"/></form>
+        <form><label>Y-axis label:</label> <input type="text" id="yInput" size= "50" placeholder="Species"/></form>
         <form><label>Designer's name:</label> <input type="text" id="credit" size= "50" placeholder="Shannon Gallagher"/></form>
 
 
@@ -110,7 +110,7 @@ form{
 </form>
         
         <p>Your graph will appear below:</p>
-        <div class="svg"></div>
+        <object class="svg"><?xml-stylesheet type="text/css" href="main.css" ?></object>
         
         <p>Finally, click here to download your image:</p>
         <button id="save">Save as Image</button>
@@ -235,7 +235,8 @@ var logo = svg.append("svg:image")
    .attr('y',482)
    .attr('width', 80)
    .attr('height', 80)
-   .attr("xlink:href","https://googledrive.com/host/0B8YsgIv2mNlHQ1JKeTNNM2lYS2M/");
+   .attr("xlink:href","https://googledrive.com/host/0B8YsgIv2mNlHMjZsY3FuTmZfbU0/");
+
 
 svg.append("text")
   .text("DESIGN")
