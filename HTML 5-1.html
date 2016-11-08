@@ -4,87 +4,13 @@
 <head>
         <title>Graphics Generator</title>
     <meta name="viewport" content="initial-scale=1">
-   <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-    <style>
-@font-face {
-    font-family: "Solano";
-    src: url("fonts/SolanoGothicMVB-Md.otf");
-}
-
-@font-face{
-  font-family: "SolanoBoldCap";
-  src: url("fonts/SolanoGothicMVB-SbCap.otf");
-}
-
-@font-face{
-  font-family: "SolanoLight";
-  src: url("fonts/SolanoGothicMVB-Lt.otf")
-}
-
-@font-face{
-  font-family:"Futura";
-  src: url("fonts/FuturaLT-Bold.ttf")
-}
-
-form{
-  margin-top:1%;
-}
-
-#twoButtons{
-  text-align: center;
-}
-
-.svg text{
-  fill: white;
-  font: 42px 'Solano', sans-serif;
-  text-anchor: end;
-}
-
-.tick {
-  stroke-dasharray: 1, 2;
-        }
-
-.tick text {
-  fill:black!important;
-}
-
-.axis path, .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-        
-.axis text {
-  font-family: 'Solano';
-  font-size: 22px;
-  fill: black;
-}
-
-.svg .title {
-  font-family:"SolanoBoldCap", serif;
-  font-size: 62px;
-  fill: black;
-}
-
-.svg .design {
-  font-family:"Futura", serif;
-  font-size: 48px;
-  fill: black;
-}
-
-.svg .credit {
-  font-family:"SolanoLight", serif;
-  font-size: 22px;
-  fill: black;
-}
-    </style>
 </head>
 
 <body>
-        
 
 <div>
         
@@ -95,32 +21,27 @@ form{
 
     <form>
             <label>Data point labels:</label>
-            <textarea id="textarea2" rows="1" cols="50" placeholder="Human, Dog, Spider"></textarea>
+            <textarea id="textarea2" rows="1" cols="50" placeholder="Person, Dog, Spider"></textarea>
     </form>
     
-        <form><label>Graph title:</label> <input type="text" id="titleInput" size="50" placeholder="max ~35 characters" /></form>
+        <form><label>Graph title:</label> <input type="text" id="titleInput" size="50" /></form>
         <form><label>X-axis label:</label> <input type="text" id="xInput" size="50" placeholder="Number of Legs"/></form>
-        <form><label>Y-axis label:</label> <input type="text" id="yInput" size= "50" placeholder="Species"/></form>
+        <form><label>Y-axis label:</label> <input type="text" id="yInput" size= "50" placeholder="Animal"/></form>
         <form><label>Designer's name:</label> <input type="text" id="credit" size= "50" placeholder="Shannon Gallagher"/></form>
 
 
 <form id="twoButtons">
         <input type="button" id="goButton" value="Generate graph"/>
+        <input type="button" id="resetButton" value=" Reset "/>
 </form>
         
         <p>Your graph will appear below:</p>
-        <object class="svg"><?xml-stylesheet type="text/css" href="main.css" ?></object>
+        <div id="svg"></div>
         
         <p>Finally, click here to download your image:</p>
         <button id="save">Save as Image</button>
-        
-        <!-- <p>SVG dataurl:</p>
-	<div id="svgdataurl"></div>  -->
-        
-        <!-- SVG converted to PNG dataurl via HTML5 CANVAS: 
-	<div id="pngdataurl"></div>-->
+	<div id="svgdataurl"></div>
 
-	<canvas width="900" height="900" style="display:none"></canvas>
 </div>           
 
 <script type="text/javascript">
@@ -133,8 +54,7 @@ form{
     var yLabelVariable;
     var creditLine;
     
-
-
+    
     $(document).ready(function() {
         $('#goButton').click(function() {
             var newNumbersString = $("#textarea1").val();
@@ -172,10 +92,10 @@ var color = d3.scale.linear()
 .domain([0,60])
 .range(["#E51937"])
 
-var svg = d3.select(".svg").append("svg")
+var svg = d3.select("#svg").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", (barHeight * data.length+150) + margin.top + margin.bottom)
-        //.style("border", "1px solid black")//
+        .style("border", "1px solid black")
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -198,7 +118,7 @@ bar.append("text")
 // chart title
 svg.append("text")
   .text(titleVariable)
-  .attr("x", 600)
+  .attr("x", width / 2)
   .attr("y", -30)
   .attr("class","title");
 
@@ -234,8 +154,7 @@ var logo = svg.append("svg:image")
    .attr('y',482)
    .attr('width', 80)
    .attr('height', 80)
-   .attr("xlink:href","http://gdurl.com/oihN");
-
+   .attr("xlink:href","https://googledrive.com/host/0B8YsgIv2mNlHQ1JKeTNNM2lYS2M/");
 
 svg.append("text")
   .text("DESIGN")
@@ -243,60 +162,34 @@ svg.append("text")
   .attr("y", 542)
   .attr("class","design");
   
-svg.append("text")
+canvas.append("text")
   .text("Graphic by " + creditLine + "/The Diamondback")
   .attr("x", 610)
   .attr("y", 532)
   .attr("class","credit");
 });
-
         
-     
         
 d3.select("#save").on("click", function(){
-  
- // var computedToInline = require("computed-style-to-inline-style");
-  //var html = d3.select("svg")
-    //    .attr("version", 1.1)
-      //  .attr("xmlns", "http://www.w3.org/2000/svg")
-        //.node().parentNode.innerHTML;
-  //computedToInline(html, true);
-  
   var html = d3.select("svg")
         .attr("version", 1.1)
         .attr("xmlns", "http://www.w3.org/2000/svg")
         .node().parentNode.innerHTML;
-        
+
   //console.log(html);
   var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
   var img = '<img src="'+imgsrc+'">'; 
   d3.select("#svgdataurl").html(img);
-  
-    var canvas = document.querySelector("canvas"),
-	  context = canvas.getContext("2d");
-
-  var image = new Image;
-  image.src = imgsrc;
-  image.onload = function() {
-	  context.drawImage(image, 0, 0);
-
-	  var canvasdata = canvas.toDataURL("image/png");
-
-	  var pngimg = '<img src="'+canvasdata+'">'; 
-  	  //d3.select("#pngdataurl").html(pngimg);//
-          
-          var a = document.createElement("a");
-	  a.download = "sample.png";
-	  a.href = canvasdata;
-	  a.click();
-  };
 });
-
-
-});    
+}); 
         
-
+        $('#resetButton').click(function() {
+        $("textarea").val('');
+        $("input").val('');
+        });
     </script>
 
 </body>
+</html>
+
 </html>

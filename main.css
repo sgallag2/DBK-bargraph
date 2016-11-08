@@ -1,16 +1,34 @@
+@font-face {
+    font-family: "Solano";
+    src: url("fonts/SolanoGothicMVB-Md.otf");
+}
+
+@font-face{
+  font-family: "SolanoBoldCap";
+  src: url("fonts/SolanoGothicMVB-SbCap.otf");
+}
+
+@font-face{
+  font-family: "SolanoLight";
+  src: url("fonts/SolanoGothicMVB-Lt.otf")
+}
+
+@font-face{
+  font-family:"Futura";
+  src: url("fonts/FuturaLT-Bold.ttf")
+}
+
 form{
-  margin-top:2%;
+  margin-top:1%;
 }
 
 #twoButtons{
   text-align: center;
 }
 
-
-
-.canvas text {
-  fill: black;
-  font: 14px sans-serif;
+.svg text{
+  fill: white;
+  font: 42px 'Solano', sans-serif;
   text-anchor: end;
 }
 
@@ -18,7 +36,9 @@ form{
   stroke-dasharray: 1, 2;
         }
 
-.tick text {fill:black!important}
+.tick text {
+  fill:black!important;
+}
 
 .axis path, .axis line {
   fill: none;
@@ -27,16 +47,25 @@ form{
 }
         
 .axis text {
-  font-family: 'Arial';
-  font-size: 17px;
+  font-family: 'Solano';
+  font-size: 22px;
   fill: black;
 }
 
-.canvas .title {
-  font: 25px sans-serif;
+.svg .title {
+  font-family:"SolanoBoldCap", serif;
+  font-size: 62px;
   fill: black;
 }
 
-.bar:hover {
-  fill: turquoise;
+.svg .design {
+  font-family:"Futura", serif;
+  font-size: 48px;
+  fill: black;
+}
+
+.svg .credit {
+  font-family:"SolanoLight", serif;
+  font-size: 22px;
+  fill: black;
 }
